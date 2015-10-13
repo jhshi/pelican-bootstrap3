@@ -7,7 +7,7 @@
     {% endif %}
 
     {% for date, msg in article.history[:POST_HISTORY_MAX_COUNT|default(5)] %}
-      <b>{{ date|strftime("%A, %B %d, %Y    %I:%M %p") }}</b><br/><p>{{ msg }}</p>
+      <b>{{ date|strftime("%A %I:%M %p, %B %d %Y") }}</b><br/><p>{{ msg }}</p>
     {% endfor %}
 </section>
 {% endif %}
