@@ -1,0 +1,13 @@
+{% if article.history %}
+<section class="well" id="related-posts">
+    {% if article.github_history_url %}
+      <h4><a href={{ article.github_history_url }}>{{ POST_REVISION_TEXT|default('Post History') }}</a></h4>
+    {% else %}
+      <h4>{{ POST_REVISION_TEXT|default('Post History:') }}</h4>
+    {% endif %}
+
+    {% for date, msg in article.history[:POST_HISTORY_MAX_COUNT|default(5)] %}
+      <b>{{ date|strftime("%A, %B %d, %Y    %I:%M %p") }}</b><br/><p>{{ msg }}</p>
+    {% endfor %}
+</section>
+{% endif %}
