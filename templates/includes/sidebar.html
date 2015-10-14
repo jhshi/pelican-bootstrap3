@@ -44,10 +44,10 @@
         {% if DISPLAY_CATEGORIES_ON_SIDEBAR %}
             <li class="list-group-item"><a href="{{ SITEURL }}/{{ CATEGORIES_URL }}"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
                 <ul class="list-group" id="categories">
-                {% for cat, null in categories[:MAX_CATEGORIES_TO_DISPLAY|default(5)] %}
+                {% for cat, articles in categories[:MAX_CATEGORIES_TO_DISPLAY|default(5)] %}
                     <li class="list-group-item">
                         <a href="{{ SITEURL }}/{{ cat.url }}">
-                            <i class="fa fa-folder-open fa-lg"></i> {{ cat }}
+                          <i class="fa fa-folder-open fa-lg"></i> {{ cat }} [{{ articles|count }}]
                         </a>
                     </li>
                 {% endfor %}
