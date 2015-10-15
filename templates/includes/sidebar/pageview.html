@@ -1,0 +1,9 @@
+{% if 'ga_page_view' in PLUGINS and DISPLAY_PAGE_VIEW_ON_SIDEBAR %}
+    {% if article %}
+        <li class="list-group-item"><h4><i class="fa fa-eye"></i><span class="icon-label">{{ article.pageview }} Hits</span></h4>
+    {% elif page %}
+        <li class="list-group-item"><h4><i class="fa fa-eye"></i><span class="icon-label">{{ page.pageview }} Hits</span></h4>
+    {% elif articles_paginator %}
+        <li class="list-group-item"><h4><i class="fa fa-eye"></i><span class="icon-label">{{ "{:,d}".format(total_page_view) }} Hits</span></h4>
+    {% endif %}
+{% endif %}
