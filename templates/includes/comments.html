@@ -39,3 +39,10 @@
 
     </section>
 {% endif %}
+
+{% if ENABLE_FB_COMMENT %}
+{% if FB_COMMENT_COUNT is not defined %}
+    {% set FB_COMMENT_COUNT = 5 %}
+{% endif %}
+<div class="fb-comments" data-href="{{ SITEURL }}/{{ article.url }}" data-numposts="{{ FB_COMMENT_COUNT }}"></div>
+{% endif %}
